@@ -27,6 +27,7 @@ export default defineConfig({
         plugins: ['typescript', 'vitest'],
         rules: {
           '@typescript-eslint/no-explicit-any': 'off',
+          'vitest/no-disabled-tests': 'error',
         },
       },
     ],

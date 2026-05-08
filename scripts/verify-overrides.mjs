@@ -100,6 +100,18 @@ function verify() {
     },
   );
 
+  withFile(
+    'apps/web/src/__verify_vitest_failure.test.ts',
+    "import { describe, it } from 'vitest';\n\ndescribe.skip('disabled suite', () => {\n  it('should be rejected', () => {});\n});\n",
+    (file) => {
+      expectFailure(
+        'vitest lint plugin is active for test files',
+        ['lint', file],
+        /no-disabled-tests/,
+      );
+    },
+  );
+
   process.stdout.write('✓ monorepo overrides are verified\n');
 }
 
