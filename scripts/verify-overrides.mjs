@@ -4,7 +4,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const repoRoot = dirname(dirname(fileURLToPath(import.meta.url)));
-const vp = process.platform === 'win32' ? 'vp.cmd' : 'vp';
+const vp = 'vp';
 
 class VerificationFailure extends Error {
   constructor(status = 1) {
